@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import SnackAlert from '~/components/alerts/SnackAlert.vue'
+import SnackAlert from '@/components/alerts/SnackAlert.vue'
 export default {
   components: {
     SnackAlert,
