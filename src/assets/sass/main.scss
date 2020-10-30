@@ -24,10 +24,11 @@ body {
   * Components
   */
 @import './components/alerts/snack';
+@import './components/draggable';
 /**
   * Pages
   */
-
+@import './pages/shapes';
 /**
   * Layouts
   */
