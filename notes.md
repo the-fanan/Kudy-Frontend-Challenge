@@ -2,13 +2,13 @@ Edge cases
 =================
 1. Lengths that blow image out of proportion of screen or infinite length. (Warn user or tell user not allowed)
 2. To many objects created on the screen so screen is crowded
-3. Objects created over shoot allocated memory for local storage. (https://stackoverflow.com/questions/4391575/how-to-find-the-size-of-localstorage) (Size of local storage used)[https://gist.github.com/tkambler/71050d80f1a57ea83c18]
+3. Objects created over shoot allocated memory for local storage. (https://stackoverflow.com/questions/4391575/how-to-find-the-size-of-localstorage) [Size of local storage used](https://gist.github.com/tkambler/71050d80f1a57ea83c18)
 4. For polygons, only allow up to a specific number of sides
 
 Structure
 ===========
 1. Input selection is a side bar, for mobile it will cover screen
-2. Created shapes appear in working area and they can be moved around, deleted and color updated. (draggable object)[https://www.kirupa.com/html5/drag.htm]
+2. Created shapes appear in working area and they can be moved around, deleted and color updated. [draggable object](https://vuejsexamples.com/a-vue-component-or-component-wrapper-that-makes-an-element-movable/) [svg creation](https://www.w3schools.com/graphics/svg_ellipse.asp)
 3. Length selection component would be based on selected shape
 4. We look through when a page is reloaded. Once a shape is created, it is added to created_shapes and then added to displayed shapes and then it is displayed. When it is deleted, it is removed from displayed shapes and created_shapes. We do the loading of previous shapes to prevent slow page load. We are using a key => value system for quick deletions of shapes. (If user makes up to one million shapes, we do not want to wait a while for the shape to be deleted)
 

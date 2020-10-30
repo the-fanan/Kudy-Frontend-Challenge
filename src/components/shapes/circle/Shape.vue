@@ -1,7 +1,7 @@
 <template>
     <movable class="draggable circle shape" :posTop="shape.top" :posLeft="shape.left" @complete="moveCompleted">
-        <svg height="100" width="100">
-            <circle cx="50" cy="50" :r="shape.parameters.radius" :fill="shape.color"/>
+        <svg :height="shape.parameters.radius * 2" :width="shape.parameters.radius * 2">
+            <circle :cx="shape.parameters.radius" :cy="shape.parameters.radius" :r="shape.parameters.radius" :fill="shape.color"/>
         </svg> 
     </movable>
 </template>
