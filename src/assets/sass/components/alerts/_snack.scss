@@ -1,0 +1,39 @@
+.#{$app-name}-snack-alert {
+	width: 100%;
+	padding:0;
+	position: fixed;
+	top: 0;
+	background-color: transparent;
+	z-index: 9999;
+
+	&.alert-slide-in {
+		-webkit-animation: slideInDown 1s ease;
+		animation:slideInDown 1s ease;
+	}
+
+	&.alert-slide-out {
+		-webkit-animation: slideOutUp 1s ease;
+		animation:slideOutUp 1s ease;
+	}
+	
+	.main {
+		padding: 10px;
+		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		width: 50%;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+
+		&.error {
+			background-color: #F36C62;
+		}
+
+		&.success {
+			background-color: #419f68;
+		}
+
+		&.info {
+			background-color: $theme-color;
+		}
+	}	
+}
