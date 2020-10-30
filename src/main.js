@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import movable from "v-movable";
 import { BootstrapVue } from 'bootstrap-vue'
+
+import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import "./assets/sass/main.scss";
 

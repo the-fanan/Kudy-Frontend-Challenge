@@ -26,10 +26,14 @@ available_shapes: {
 }
 
 created_shapes: {
-    positon: {
-        top, left
-    },
+    top,
+    left,
     color,
+    component,
+    key,
+    parameters: {
+        radius:
+    }
 }
 
 Shapes
