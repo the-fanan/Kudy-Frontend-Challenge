@@ -1,0 +1,35 @@
+/**
+  * Helpers
+  */
+@import './helpers/variables';
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+    letter-spacing: 0.08em;
+    scroll-behavior: smooth;
+    font-family: $theme-font;
+}
+
+/**
+  * Aimations
+  */
+@import './animations/animate.scss';
+
+/**
+  * Components
+  */
+
+/**
+  * Pages
+  */
+
+/**
+  * Layouts
+  */
+@import './layouts/default';
+@import './layouts/responsive';
