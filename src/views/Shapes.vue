@@ -7,6 +7,7 @@
 <script>
 import {mapState} from 'vuex';
 import CircleShape from '@/components/shapes/circle/Shape.vue';
+import ElipseShape from '@/components/shapes/elipse/Shape.vue';
 
 export default {
     data(){
@@ -22,7 +23,8 @@ export default {
         //display all the shapes in shapes.created
     },
     components: {
-        CircleShape
+        CircleShape,
+        ElipseShape,
     }
 }
 </script>

@@ -13,7 +13,6 @@ let storageSpaceAvailable = (data) => {
     //console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
 
     let dataString = JSON.stringify(data);
-    console.log(dataString)
     let dataSize = dataString.length * 2;
     _lsTotal += dataSize
     //console.log("Data Size: " + (dataSize / 1024).toFixed(3) + " KB");

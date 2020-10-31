@@ -1,7 +1,7 @@
 <template>
     <div class="circle-form">
         <div class="form-group">
-            <label>Radius (cm)</label>
+            <label>Radius</label>
             <input class="form-control" type="number" v-model="radius"/>
         </div>
 
