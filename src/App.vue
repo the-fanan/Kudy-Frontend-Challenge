@@ -11,6 +11,9 @@
 
         <component v-bind:is="currentShape.form" v-if="currentShape != null"></component>
       </div>
+      <div class="delete-shapes">
+        <button class="btn btn-danger btn-block" @click="deleteAllShapes">Delete All Shapes</button>
+      </div>
     </div>
 
     <div class="content">
@@ -18,12 +21,21 @@
         <router-view/>
       </b-container>
     </div>
+    <ConfirmationModal 
+      title="Delete All Shapes" 
+      message="Are you sure you want to delete all shapes?" 
+      :show="showConfirmationModal"
+      v-on:decline="handleDeleteConfirmation"
+      v-on:approve="handleDeleteConfirmation"
+    />
     <SnackAlert />
   </div>
 </template>
 
 <script>
+import {mapMutations} from 'vuex';
 import SnackAlert from '@/components/alerts/SnackAlert.vue';
+import ConfirmationModal from '@/components/modals/ConfirmationModal.vue';
 import availableShapes from '@/data/shapes.js';
 import CircleForm from '@/components/shapes/circle/Form.vue';
 import SquareForm from '@/components/shapes/square/Form.vue';
@@ -38,10 +50,26 @@ export default {
     return {
       availableShapes: availableShapes,
       currentShape: null,
+      showConfirmationModal: false,
+    }
+  },
+  methods: {
+    ...mapMutations({resetShapes: 'shapes/resetState'}),
+    handleDeleteConfirmation(truthy)
+    {
+      if (truthy === true) {
+        this.resetShapes()
+      }
+      this.showConfirmationModal = false; 
+    },
+    deleteAllShapes()
+    {
+      this.showConfirmationModal = true;
     }
   },
   components: {
     SnackAlert,
+    ConfirmationModal,
     CircleForm,
     SquareForm,
     ElipseForm,

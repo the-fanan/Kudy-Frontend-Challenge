@@ -31,6 +31,13 @@ const shapes = {
             shape.left = data.left;
             state.created[data.key] = shape;
         },
+        deleShape(state, data)
+        {
+
+        },
+        resetState (state) {
+            Object.assign(state, getDefaultState())
+        },
         /**
          * mutation(state, data) {
          *  state.element = data;
