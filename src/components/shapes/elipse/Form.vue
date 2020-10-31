@@ -52,8 +52,8 @@ export default {
                 color: this.color,
                 component: 'elipse-shape',
                 parameters: {
-                    xRadius: this.xRadius,
-                    yRadius: this.yRadius,
+                    xRadius: parseFloat(this.xRadius),
+                    yRadius: parseFloat(this.yRadius),
                 }
             }
             this.addShape(shape);

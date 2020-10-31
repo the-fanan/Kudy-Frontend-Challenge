@@ -52,8 +52,8 @@ export default {
                 color: this.color,
                 component: 'rectangle-shape',
                 parameters: {
-                    width: this.width,
-                    height: this.height,
+                    width: parseFloat(this.width),
+                    height: parseFloat(this.height),
                 }
             }
             this.addShape(shape);

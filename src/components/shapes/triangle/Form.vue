@@ -46,7 +46,7 @@ export default {
                 color: this.color,
                 component: 'polygon-shape',
                 parameters: {
-                    width: parseInt(this.width),
+                    width: parseFloat(this.width),
                     sides: 3,
                 }
             }

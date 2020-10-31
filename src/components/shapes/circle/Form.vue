@@ -46,7 +46,7 @@ export default {
                 color: this.color,
                 component: 'circle-shape',
                 parameters: {
-                    radius: this.radius,
+                    radius: parseFloat(this.radius),
                 }
             }
             this.addShape(shape);

@@ -46,7 +46,7 @@ export default {
                 color: this.color,
                 component: 'square-shape',
                 parameters: {
-                    width: this.width,
+                    width: parseFloat(this.width),
                 }
             }
             this.addShape(shape);
