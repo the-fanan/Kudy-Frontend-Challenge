@@ -1,7 +1,7 @@
 Edge cases
 =================
 1. Lengths that blow image out of proportion of screen or infinite length. (Warn user or tell user not allowed)
-2. To many objects created on the screen so screen is crowded (delete all shapes)
+2. Too many objects created on the screen so screen is crowded (delete all shapes)
 3. Objects created over shoot allocated memory for local storage. (https://stackoverflow.com/questions/4391575/how-to-find-the-size-of-localstorage) [Size of local storage used](https://gist.github.com/tkambler/71050d80f1a57ea83c18)
 4. For polygons, only allow up to a specific number of sides (set max polygon sides)
 

@@ -1,24 +1,56 @@
-# fec
+# Shapey
+This is my submission for the Kudy Frontend Challenge. This project was built with **Vue** and allows users to create shapes based on specified dimensions.
 
-## Project setup
-```
-yarn install
-```
+Shapes available include: 
+- Circle
+- Ellipse
+- Rectangle
+- Square
+- Triangle
+- Polygons (5 to 30 sides)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Structure
+The main page that displays all the shapes is the shapes component **@/views/Shapes.vue**
 
-### Compiles and minifies for production
-```
-yarn build
-```
+Various components are created to handle the createion of the shapes. The creation components are found in **@/components/shapes/SHAPE/Form.vue** while the component that handles display of the intended shape is found in  **@/components/shapes/SHAPE/Shape.vue**.
 
-### Run your unit tests
-```
-yarn test:unit
-```
+## Behaviour
+- Only even sided polygons can be made
+- Color can be selected for each shape
+- There is an option to delete all shapes at once
+- Individual shapes can be deleted by double clicking on them. (A tooltip bearing this information appears when you hover over a shape).
+- When a shape is created it animates into the screen (It enlarges from dimensions of 0 till it gets to it's specified dimensions).
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Edge Cases I thought about
+- Users are not allowed to create shapes with dimensions that exceed the user's screen size. This is to handle edge case of an extremely large dimension value JavaScript may not be able to handle.
+- Polygon sides are limited to 30 to prevent edge case of user entering an extremely large value that Javascript cannot handle. Also, this is to prevent creating a polygon whose size might go out of the screen's proportions.
+- In order to persist shapes on reload, I made use of **window.localStorage**. To prevent a situation where user creates too many shapes and exceeds the maximum storage available for local storage a check is made on the space consumed by the application and if it is exceeded the user is not allowed to create more shapes and is alerted about this.
+
+## Setting up project
+### Requirements
+- Node v12
+- yarn or npm installed
+- docker (optional)
+- docker-compose (optional)
+
+### Serving without Docker
+- Enter into project root directory
+- Run `npm install` or `yarn install`
+- Run `npm run serve` or `yarn run serve`
+- Open your web browser and navigate to `http://localhost:3000`
+
+### Serving with Docker
+- Enter into project root directory
+- Run `sudo docker-compose up`
+- Open your web browser and navigate to `http://localhost:5000`
+
+### View On Web
+[Link to Live project](https://the-fanan.github.io/kudy-challenge-bundled/)
+
+## Author
+[Fanan Dala](https://fanandala.com)
+
+## Contact
+[Email](mailto:fanan.dala@yahoo.com)
+
+[Twitter](https://twitter.com/the_cocoreidh)
