@@ -1,3 +1,4 @@
+import storageSpaceAvailable from '@/utils/storageSpaceAvailable.js';
 const getDefaultState = () => {
     return {
         created: {},
@@ -48,7 +49,11 @@ const shapes = {
         addShape({commit, dispatch}, data)
         {
             //determine if space is available in local storage
-
+            if (!storageSpaceAvailable(data))
+            {
+                dispatch('alert/showSnackAlert', {type: "error", heading: "Storage Full", messages: ["You can no longer add any more items. Please delete items to reduce storage consumption."]}, {root: true});
+                return;
+            }
             //if space is available then add else throw error
             commit('addShape', data)
         }
