@@ -15,6 +15,19 @@ const shapes = {
          */
     },
     mutations: {
+        addShape(state, data)
+        {
+            let date = new Date;
+            let key = data.component + '-' + date.getTime();
+            data = {...data, key}
+            let created = {...state.created}
+            created[key] = data
+            state.created = created
+        },
+        updateShapeCoordinates(state, data)
+        {
+
+        },
         /**
          * mutation(state, data) {
          *  state.element = data;

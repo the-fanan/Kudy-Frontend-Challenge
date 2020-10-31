@@ -9,14 +9,6 @@
 <script>
 export default {
     name: 'circle-shape',
-    data(){
-        return {
-            initialRadius: 0,
-        }
-    },
-    mounted()
-    {
-    },
     props: {
         shape: {
             type: Object,
