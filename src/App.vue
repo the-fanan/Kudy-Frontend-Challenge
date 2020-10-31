@@ -4,6 +4,9 @@
       <div class="d-flex justify-content-end cancel">
         <i class="fas fa-times fa-lg" @click="toggleShowSideBar"></i>
       </div>
+      <div class="logo-holder d-flex justify-content-center">
+        <img :src="require('@/assets/logo.svg')"/>
+      </div>
 
       <div class="side-form">
         <div class="form-group">

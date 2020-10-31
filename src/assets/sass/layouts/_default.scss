@@ -17,6 +17,12 @@
             }
         }
 
+        .logo-holder {
+            img {
+                width: 80px;
+            }
+        }
+
         &.show {
             width: 300px;
             opacity: 1;
