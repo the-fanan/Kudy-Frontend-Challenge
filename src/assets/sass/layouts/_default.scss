@@ -39,7 +39,7 @@
     &>.content {
         flex-grow: 1;
         background-color: #e2e2e2;
-        overflow: hidden;
+        overflow: scroll;
         .show-sidebar {
             padding: 10px;
             transition: 1s ease;
@@ -50,7 +50,7 @@
         }
         &>.container-fluid{
             &>.row.main{
-                padding: 40px 40px;
+                padding: 0;
             }
         }
     }
