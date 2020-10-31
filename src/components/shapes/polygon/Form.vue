@@ -7,7 +7,7 @@
 
         <div class="form-group">
             <label>Sides</label>
-            <input class="form-control" type="number" v-model="sides" min="5" max="100" step="1"/>
+            <input class="form-control" type="number" v-model="sides" min="5" max="30" step="1"/>
         </div>
 
         <div class="form-group">
@@ -39,17 +39,16 @@ export default {
         ...mapActions({showSnackAlert: 'alert/showSnackAlert', addShape: 'shapes/addShape'}),
         createShape()
         {
-          
             let max = maxDimension();
-        
+             
             if (this.width > max || this.height > max) {
                 this.showSnackAlert({type: "error", heading: "Invalid Value", messages: ["The width [" + this.width + "] is too large for your screen size. Use value less than " + max + "."]});
                 return;
             }
 
             this.sides = parseInt(this.sides);
-            if (this.sides > 100) {
-                this.showSnackAlert({type: "error", heading: "Invalid Value", messages: ["The number of sides [" + this.sides + "] is too more than the permitted number. Max number of sides allowed is 100"]});
+            if (this.sides > 30 || this.sides < 5) {
+                this.showSnackAlert({type: "error", heading: "Invalid Value", messages: ["The number of sides [" + this.sides + "] is not within the permitted. Max number of sides allowed is 30 and minimum number of sides allowed is 5"]});
                 return;
             }
 
@@ -59,10 +58,11 @@ export default {
                 color: this.color,
                 component: 'polygon-shape',
                 parameters: {
-                    width: this.width,
+                    width: parseInt(this.width),
                     sides: this.sides,
                 }
             }
+           
             this.addShape(shape);
             //reset form
             this.width = 80;
