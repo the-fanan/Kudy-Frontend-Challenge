@@ -18,7 +18,7 @@
 
 <script>
 import {mapMutations, mapActions} from "vuex";
-import maxDimension from '@/data/maxDimension.js';
+import maxDimension from '@/utils/maxDimension.js';
 
 export default {
     name: 'circle-form',
