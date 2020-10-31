@@ -53,6 +53,8 @@ export default {
             //reset form
             this.radius = 10;
             this.color = "#276db8";
+            //emit that shape is created so that mobile viewers can see
+            this.$emit('shape-created')
         },
     }
 }

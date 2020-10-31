@@ -2,20 +2,37 @@
     display: flex;
     background-color: #E5E5E5;
     .sidebar {
-        width: 300px;
-        min-height: 100vh;
+        width: 0;
+        opacity: 0;
+        height: 100vh;
         box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
         background-color: #fff;
         z-index: 10;
+        transition: 1s ease;
+        .cancel {
+            padding: 10px;
+            padding-right: 20px;
+            i {
+                cursor: pointer;
+            }
+        }
+
+        &.show {
+            width: 300px;
+            opacity: 1;
+            display: block;
+        }
 
         .side-form {
             width: 100%;
-            padding: 30px;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         .delete-shapes {
             margin-top: 50px;
-            padding: 30px;
+            padding: 10px;
         }
     }
 
@@ -23,9 +40,30 @@
         flex-grow: 1;
         background-color: #e2e2e2;
         overflow: hidden;
+        .show-sidebar {
+            padding: 10px;
+            transition: 1s ease;
+            i {
+                cursor: pointer;
+                font-size: 2em;
+            }
+        }
         &>.container-fluid{
             &>.row.main{
                 padding: 40px 40px;
+            }
+        }
+    }
+}
+
+@media (max-width: 550px){
+    .main.default {
+        .sidebar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            &.show {
+                width: 100%;
             }
         }
     }

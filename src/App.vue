@@ -1,6 +1,10 @@
 <template>
   <div class="main default">
-    <div class="sidebar">
+    <div :class="'sidebar ' + (showSidebar ? 'show' : '')">
+      <div class="d-flex justify-content-end cancel">
+        <i class="fas fa-times fa-lg" @click="toggleShowSideBar"></i>
+      </div>
+
       <div class="side-form">
         <div class="form-group">
           <label for="shape">Select Shape</label>
@@ -9,7 +13,7 @@
             </select>
         </div>
 
-        <component v-bind:is="currentShape.form" v-if="currentShape != null"></component>
+        <component v-bind:is="currentShape.form" v-if="currentShape != null" v-on:shape-created="handleShapeCreated"></component>
       </div>
       <div class="delete-shapes">
         <button class="btn btn-danger btn-block" @click="deleteAllShapes">Delete All Shapes</button>
@@ -18,6 +22,9 @@
 
     <div class="content">
       <b-container fluid>
+        <div class="d-flex justify-content-right show-sidebar" v-if="!showSidebar">
+          <i class="fas fa-bars fa-lg" @click="toggleShowSideBar"></i>
+        </div>
         <router-view/>
       </b-container>
     </div>
@@ -51,6 +58,7 @@ export default {
       availableShapes: availableShapes,
       currentShape: null,
       showConfirmationModal: false,
+      showSidebar: true,
     }
   },
   methods: {
@@ -65,6 +73,18 @@ export default {
     deleteAllShapes()
     {
       this.showConfirmationModal = true;
+    },
+    handleShapeCreated()
+    {
+      //if on mobile, hide side bar
+      let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+      if (width <= 550) {
+        this.showSidebar = !this.showSidebar;
+      }
+    },
+    toggleShowSideBar()
+    {
+      this.showSidebar = !this.showSidebar;
     }
   },
   components: {
