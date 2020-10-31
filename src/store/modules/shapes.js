@@ -32,9 +32,11 @@ const shapes = {
             shape.left = data.left;
             state.created[data.key] = shape;
         },
-        deleShape(state, data)
+        deleShape(state, key)
         {
-
+            let created = {...state.created}
+            delete created[key];
+            state.created = created;
         },
         resetState (state) {
             Object.assign(state, getDefaultState())
