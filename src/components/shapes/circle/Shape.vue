@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import {mapMutations} from "vuex";
+
 export default {
     name: 'circle-shape',
     props: {
@@ -16,11 +18,14 @@ export default {
         }
     },
     methods: {
+        ...mapMutations({updatePosition: 'shapes/updateShapePosition'}),
         moveCompleted(e)
         {
-            //e.css.top
-            //e.css.left
-
+            this.updatePosition({
+                key: this.shape.key,
+                top: e.css.top,
+                left: e.css.left
+            })
         }
     }
 }

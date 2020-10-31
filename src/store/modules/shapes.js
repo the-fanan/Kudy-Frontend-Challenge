@@ -19,14 +19,17 @@ const shapes = {
         {
             let date = new Date;
             let key = data.component + '-' + date.getTime();
-            data = {...data, key}
-            let created = {...state.created}
-            created[key] = data
-            state.created = created
+            data = {...data, key};
+            let created = {...state.created};
+            created[key] = data;
+            state.created = created;
         },
-        updateShapeCoordinates(state, data)
+        updateShapePosition(state, data)
         {
-
+            let shape = state.created[data.key];
+            shape.top = data.top;
+            shape.left = data.left;
+            state.created[data.key] = shape;
         },
         /**
          * mutation(state, data) {
