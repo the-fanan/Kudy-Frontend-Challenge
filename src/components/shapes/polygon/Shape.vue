@@ -1,8 +1,10 @@
 <template>
     <movable class="draggable polygon shape" :posTop="shape.top" :posLeft="shape.left" @complete="moveCompleted" v-b-tooltip.hover title="Double-click to delete">
-        <svg :width="radius * 2" :height="radius * 2" @dblclick="deleteShape(shape.key)">
-            <polygon :points="path" :fill="shape.color"/>
-        </svg> 
+        <v-touch @tap="handleDoubleTap(shape.key)">
+            <svg :width="radius * 2" :height="radius * 2" @dblclick="deleteShape(shape.key)">
+                <polygon :points="path" :fill="shape.color"/>
+            </svg> 
+        </v-touch>
     </movable>
 </template>
 
@@ -11,6 +13,11 @@ import {mapMutations} from "vuex";
 
 export default {
     name: 'polygon-shape',
+    data(){
+        return {
+            taps: 0,
+        }
+    },
     props: {
         shape: {
             type: Object,
@@ -60,6 +67,24 @@ export default {
                 left: e.css.left
             })
         },
+        handleDoubleTap(key)
+        {
+            //double tap code gotten from https://stackoverflow.com/a/56046910/7715823
+            this.taps++;
+            if (this.taps === 1) {          
+                var self = this;
+                setTimeout(function() {
+                    switch(self.taps) { 
+                        case 1:
+                            //do nothing
+                            break;
+                        default:
+                            self.deleteShape(key);
+                    }
+                    self.taps = 0;
+                }, 200);  
+            }
+        }
     }
 }
 </script>
