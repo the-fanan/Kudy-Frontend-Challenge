@@ -17,7 +17,9 @@
 </template>
 
 <script>
-import {mapMutations} from "vuex";
+import {mapMutations, mapActions} from "vuex";
+import maxDimension from '@/data/maxDimension.js';
+
 export default {
     name: 'circle-form',
     data()
@@ -28,9 +30,16 @@ export default {
         }
     },
     methods: {
-        ...mapMutations({addShape: 'shapes/addShape'}),
+        ...mapActions({showSnackAlert: 'alert/showSnackAlert', addShape: 'shapes/addShape'}),
         createShape()
         {
+          
+            let max = maxDimension();
+            if (this.radius > max) {
+                this.showSnackAlert({type: "error", heading: "Invalid Value", messages: ["The radius entered [" + this.radius + "] is too large for your screen size. Use radius less than " + max + "."]});
+                return;
+            }
+
             let shape = {
                 top: 100,
                 left: 100,

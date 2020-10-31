@@ -38,6 +38,13 @@ const shapes = {
          */
     },
     actions: {
+        addShape({commit, dispatch}, data)
+        {
+            //determine if space is available in local storage
+
+            //if space is available then add else throw error
+            commit('addShape', data)
+        }
         /**
          * action({state, commit, dispatch, rootState}, payload) {
          *      commit('mutation/in/other/module', data, { root: true } )

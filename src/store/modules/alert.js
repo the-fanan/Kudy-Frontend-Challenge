@@ -10,6 +10,7 @@ const getDefaultState = () => {
 }
 
 const alert = {
+    namespaced: true,
     state: getDefaultState(),
     getters: {
         /**
@@ -46,7 +47,7 @@ const alert = {
             setTimeout(() => {
                 commit('resetSnackAlert')
             }, 5000);
-        }
+        },
         /**
          * action({state, commit, dispatch, rootState}, payload) {
          *      commit('mutation/in/other/module', data, { root: true } )
