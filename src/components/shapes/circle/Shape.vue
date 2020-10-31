@@ -1,6 +1,6 @@
 <template>
-    <movable class="draggable circle shape" :posTop="shape.top" :posLeft="shape.left" @complete="moveCompleted">
-        <svg :height="shape.parameters.radius * 2" :width="shape.parameters.radius * 2">
+    <movable class="draggable circle shape" :posTop="shape.top" :posLeft="shape.left" @complete="moveCompleted" v-b-tooltip.hover title="Double-click to delete">
+        <svg :height="shape.parameters.radius * 2" :width="shape.parameters.radius * 2" @dblclick="deleteShape(shape.key)">
             <circle :cx="shape.parameters.radius" :cy="shape.parameters.radius" :r="shape.parameters.radius" :fill="shape.color"/>
         </svg> 
     </movable>
@@ -18,7 +18,7 @@ export default {
         }
     },
     methods: {
-        ...mapMutations({updatePosition: 'shapes/updateShapePosition'}),
+        ...mapMutations({updatePosition: 'shapes/updateShapePosition', deleteShape: 'shapes/deleteShape'}),
         moveCompleted(e)
         {
             this.updatePosition({

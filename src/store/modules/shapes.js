@@ -32,7 +32,7 @@ const shapes = {
             shape.left = data.left;
             state.created[data.key] = shape;
         },
-        deleShape(state, key)
+        deleteShape(state, key)
         {
             let created = {...state.created}
             delete created[key];
