@@ -20,6 +20,7 @@ Various components are created to handle the createion of the shapes. The creati
 - There is an option to delete all shapes at once
 - Individual shapes can be deleted by double clicking on them. (A tooltip bearing this information appears when you hover over a shape).
 - When a shape is created it animates into the screen (It enlarges from dimensions of 0 till it gets to it's specified dimensions).
+- Shapes that have been created can be moved around the screen and their positons remain intact on reload
 
 ## Edge Cases I thought about
 - Users are not allowed to create shapes with dimensions that exceed the user's screen size. This is to handle edge case of an extremely large dimension value JavaScript may not be able to handle.
