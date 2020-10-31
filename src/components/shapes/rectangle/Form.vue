@@ -41,7 +41,7 @@ export default {
         {
           
             let max = maxDimension();
-            if (this.radius > max) {
+            if (this.width > max || this.height > max) {
                 this.showSnackAlert({type: "error", heading: "Invalid Value", messages: ["One of the values entered [width: " + this.width + ", height:" + this.height + "] is too large for your screen size. Use value less than " + max + "."]});
                 return;
             }
