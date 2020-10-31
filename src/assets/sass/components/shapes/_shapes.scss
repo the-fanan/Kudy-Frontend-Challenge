@@ -1,0 +1,8 @@
+.shape {
+    &>svg {
+        circle, ellipse, rect, polygon {
+            stroke: #fff;
+            stroke-width: 1px;
+        }
+    }
+}
