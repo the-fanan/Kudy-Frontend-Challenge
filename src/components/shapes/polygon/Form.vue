@@ -2,7 +2,7 @@
     <div class="polygon-form">
         <div class="form-group">
             <label>Width</label>
-            <input class="form-control" type="number" v-model="width"/>
+            <input class="form-control" type="number" v-model="width" min="5" max="100"/>
         </div>
 
         <div class="form-group">
@@ -39,9 +39,9 @@ export default {
         ...mapActions({showSnackAlert: 'alert/showSnackAlert', addShape: 'shapes/addShape'}),
         createShape()
         {
-            let max = maxDimension();
+            let max = 100;
              
-            if (this.width > max || this.height > max) {
+            if (this.width > max) {
                 this.showSnackAlert({type: "error", heading: "Invalid Value", messages: ["The width [" + this.width + "] is too large for your screen size. Use value less than " + max + "."]});
                 return;
             }
