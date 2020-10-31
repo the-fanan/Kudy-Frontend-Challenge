@@ -5,4 +5,17 @@
             stroke-width: 1px;
         }
     }
+
+    animation-duration: 1s;
+    animation-name: circleTransition;
+    transform-origin: center center;
+}
+
+@keyframes circleTransition {
+    from {
+        transform: scale(0.2);
+    }
+    to {
+        transform: scale(1);
+    }
 }
