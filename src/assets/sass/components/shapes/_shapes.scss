@@ -7,11 +7,11 @@
     }
 
     animation-duration: 1s;
-    animation-name: circleTransition;
+    animation-name: shapeTransition;
     transform-origin: center center;
 }
 
-@keyframes circleTransition {
+@keyframes shapeTransition {
     from {
         transform: scale(0.2);
     }
