@@ -18,7 +18,7 @@
 
         <component v-bind:is="currentShape.form" v-if="currentShape != null" v-on:shape-created="handleShapeCreated"></component>
       </div>
-      <div class="delete-shapes">
+      <div class="delete-shapes" v-if="!shapesIsEmpty">
         <button class="btn btn-danger btn-block" @click="deleteAllShapes">Delete All Shapes</button>
       </div>
     </div>
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex';
+import {mapMutations, mapState} from 'vuex';
 import SnackAlert from '@/components/alerts/SnackAlert.vue';
 import ConfirmationModal from '@/components/modals/ConfirmationModal.vue';
 import availableShapes from '@/utils/shapes.js';
@@ -63,6 +63,12 @@ export default {
       showConfirmationModal: false,
       showSidebar: true,
     }
+  },
+  computed: {
+    ...mapState({createdShapes: state => state.shapes.created}),
+    shapesIsEmpty: function () {
+      return Object.keys(this.createdShapes).length === 0 && this.createdShapes.constructor === Object
+    },
   },
   methods: {
     ...mapMutations({resetShapes: 'shapes/resetState'}),
