@@ -1,0 +1,9 @@
+.delete-button-in {
+    -webkit-animation: slideInLeft .8s ease;
+    animation: slideInLeft .8s ease;
+}
+
+.delete-button-out {
+    -webkit-animation: slideOutLeft .8s ease;
+    animation: slideOutLeft .8s ease;
+}

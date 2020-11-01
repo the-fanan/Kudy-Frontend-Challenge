@@ -16,11 +16,25 @@
             </select>
         </div>
 
-        <component v-bind:is="currentShape.form" v-if="currentShape != null" v-on:shape-created="handleShapeCreated"></component>
+        <transition name="shape-form-transition"
+          enter-active-class="shape-form-in"
+          leave-active-class="shape-form-out" 
+        >
+          <component v-bind:is="currentShape.form" v-if="currentShape != null" v-on:shape-created="handleShapeCreated"></component>
+        </transition>
       </div>
-      <div class="delete-shapes" v-if="!shapesIsEmpty">
-        <button class="btn btn-danger btn-block" @click="deleteAllShapes">Delete All Shapes</button>
+      
+      <div class="delete-shapes">
+        <transition name="delete-button-transition"
+          enter-active-class="delete-button-in"
+          leave-active-class="delete-button-out" 
+          leave-class="delete-button-out" 
+          leave-to-class="delete-button-out" 
+        >
+          <button class="btn btn-danger btn-block" @click="deleteAllShapes" v-if="!shapesIsEmpty">Delete All Shapes</button>
+        </transition>
       </div>
+      
     </div>
 
     <div class="content">
