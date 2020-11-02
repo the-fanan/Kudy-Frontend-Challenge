@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import ElipseShape from '@/components/shapes/elipse/Shape.vue';
 
 describe('ElipseShape displays an ellipse based on props', () => {
-    it('displays an SVG circle with appropriate attributes', () => {
+    it('displays an SVG ellipse with appropriate attributes', () => {
         const shape = {
             top: 100,
             left: 100,
