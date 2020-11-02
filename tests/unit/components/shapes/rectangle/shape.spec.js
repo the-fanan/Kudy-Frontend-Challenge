@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import RectangleShape from '@/components/shapes/rectangle/Shape.vue';
 
-describe('CircleShape displays a circle based on props', () => {
+describe('RectangleShape displays a rectangle based on props', () => {
     it('displays an SVG circle with appropriate attributes', () => {
         const shape = {
             top: 100,
