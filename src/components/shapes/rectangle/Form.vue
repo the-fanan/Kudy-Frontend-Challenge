@@ -2,21 +2,21 @@
     <div class="rectangle-form">
         <div class="form-group">
             <label>Width</label>
-            <input class="form-control" type="number" v-model="width"/>
+            <input class="form-control" name="width" type="number" v-model="width"/>
         </div>
 
         <div class="form-group">
             <label>Height</label>
-            <input class="form-control" type="number" v-model="height"/>
+            <input class="form-control" name="height" type="number" v-model="height"/>
         </div>
 
         <div class="form-group">
             <label>Color</label>
-            <input class="form-control" type="color" v-model="color"/>
+            <input class="form-control" name="color" type="color" v-model="color"/>
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" @click="createShape">Create Rectangle</button>
+            <button class="btn btn-primary submit-button" @click="createShape">Create Rectangle</button>
         </div>
     </div>
 </template>

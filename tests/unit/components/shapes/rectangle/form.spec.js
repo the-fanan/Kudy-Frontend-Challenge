@@ -1,11 +1,11 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import ElipseForm from '@/components/shapes/elipse/Form.vue';
+import RectangleForm from '@/components/shapes/rectangle/Form.vue';
 import Vuex from 'vuex'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-describe('ElipseForm collects inputs for creating an elipse', () => {
+describe('RectangleForm collects inputs for creating a rectangle', () => {
     let actions
     let store
 
@@ -34,22 +34,22 @@ describe('ElipseForm collects inputs for creating an elipse', () => {
             top: 100,
             left: 100,
             color: "#276db9",
-            component: 'elipse-shape',
+            component: 'rectangle-shape',
             parameters: {
-                xRadius: 20,
-                yRadius: 50,
+                width: 40,
+                height: 20,
             }
         }
 
-        const wrapper = shallowMount(ElipseForm, {
+        const wrapper = shallowMount(RectangleForm, {
             store, 
             localVue
         })
 
-        const xRadiusInput = wrapper.find('input[name=x-radius]')
-        await xRadiusInput.setValue(shape.parameters.xRadius)
-        const yRadiusInput = wrapper.find('input[name=y-radius]')
-        await yRadiusInput.setValue(shape.parameters.yRadius)
+        const widthInput = wrapper.find('input[name=width]')
+        await widthInput.setValue(shape.parameters.width)
+        const heightInput = wrapper.find('input[name=height]')
+        await heightInput.setValue(shape.parameters.height)
 
         const colorInput = wrapper.find('input[name=color]')
         await colorInput.setValue(shape.color)
@@ -59,8 +59,8 @@ describe('ElipseForm collects inputs for creating an elipse', () => {
         expect(actions.addShape).toHaveBeenCalledWith(expect.anything(), shape)
         expect(wrapper.emitted('shape-created')).toBeTruthy()
         //ensure form is reset
-        expect(wrapper.vm.$data.xRadius).toEqual(20)
-        expect(wrapper.vm.$data.yRadius).toEqual(10)
+        expect(wrapper.vm.$data.width).toEqual(80)
+        expect(wrapper.vm.$data.height).toEqual(40)
         expect(wrapper.vm.$data.color).toEqual('#276db8')
     })
 })
