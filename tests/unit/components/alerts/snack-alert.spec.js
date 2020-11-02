@@ -1,10 +1,12 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import SnackAlert from '@/components/alerts/SnackAlert.vue';
+import { BootstrapVue } from 'bootstrap-vue';
 import Vuex from 'vuex'
 
 const localVue = createLocalVue()
 
 localVue.use(Vuex)
+localVue.use(BootstrapVue)
 
 describe('SnackAlert.vue', () => {
     it('renders alert.state.snackAlert values', () => {

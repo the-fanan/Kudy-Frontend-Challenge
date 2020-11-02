@@ -1,6 +1,6 @@
 <template>
-    <movable class="draggable circle shape" :posTop="shape.top" :posLeft="shape.left" @complete="moveCompleted" v-b-tooltip.hover title="Double-click to delete">
-        <v-touch @tap="handleDoubleTap(shape.key)" @dblclick="deleteShape(shape.key)">
+    <movable class="draggable shape" :posTop="shape.top" :posLeft="shape.left" @complete="moveCompleted" v-b-tooltip.hover title="Double-click to delete">
+        <v-touch class="v-touch" @tap="handleDoubleTap(shape.key)" @dblclick="deleteShape(shape.key)">
             <slot></slot>
         </v-touch>
     </movable>
