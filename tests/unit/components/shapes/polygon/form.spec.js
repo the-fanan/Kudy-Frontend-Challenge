@@ -1,11 +1,11 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import TriangleForm from '@/components/shapes/triangle/Form.vue';
+import PolygonForm from '@/components/shapes/polygon/Form.vue';
 import Vuex from 'vuex'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-describe('TriangleForm collects inputs for creating a triangle', () => {
+describe('PolygonForm collects inputs for creating a polygon', () => {
     let actions
     let store
 
@@ -29,7 +29,7 @@ describe('TriangleForm collects inputs for creating a triangle', () => {
         expect(screen.width).toBe(500);
     })
 
-    it('creates the necessary Object for a triangle shape', async () => {
+    it('creates the necessary Object for a polygon shape', async () => {
         let shape = {
             top: 100,
             left: 100,
@@ -37,17 +37,20 @@ describe('TriangleForm collects inputs for creating a triangle', () => {
             component: 'polygon-shape',
             parameters: {
                 width: 30,
-                sides: 3,
+                sides: 8,
             }
         }
 
-        const wrapper = shallowMount(TriangleForm, {
+        const wrapper = shallowMount(PolygonForm, {
             store, 
             localVue
         })
 
         const widthInput = wrapper.find('input[name=width]')
         await widthInput.setValue(shape.parameters.width)
+
+        const sidesInput = wrapper.find('input[name=sides]')
+        await sidesInput.setValue(shape.parameters.sides)
 
         const colorInput = wrapper.find('input[name=color]')
         await colorInput.setValue(shape.color)
@@ -58,6 +61,7 @@ describe('TriangleForm collects inputs for creating a triangle', () => {
         expect(wrapper.emitted('shape-created')).toBeTruthy()
         //ensure form is reset
         expect(wrapper.vm.$data.width).toEqual(80)
+        expect(wrapper.vm.$data.sides).toEqual(5)
         expect(wrapper.vm.$data.color).toEqual('#276db8')
     })
 })

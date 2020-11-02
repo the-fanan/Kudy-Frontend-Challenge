@@ -2,21 +2,21 @@
     <div class="polygon-form">
         <div class="form-group">
             <label>Width</label>
-            <input class="form-control" type="number" v-model="width" min="5" max="100"/>
+            <input class="form-control" name="width" type="number" v-model="width" min="5" max="100"/>
         </div>
 
         <div class="form-group">
             <label>Sides</label>
-            <input class="form-control" type="number" v-model="sides" min="5" max="30" step="1"/>
+            <input class="form-control" name="sides" type="number" v-model="sides" min="5" max="30" step="1"/>
         </div>
 
         <div class="form-group">
             <label>Color</label>
-            <input class="form-control" type="color" v-model="color"/>
+            <input class="form-control" name="color" type="color" v-model="color"/>
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" @click="createShape">Create Polygon</button>
+            <button class="btn btn-primary submit-button" @click="createShape">Create Polygon</button>
         </div>
     </div>
 </template>
