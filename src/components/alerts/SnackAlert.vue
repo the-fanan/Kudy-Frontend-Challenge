@@ -5,9 +5,9 @@
 	>
 		<div class="fec-snack-alert d-flex justify-content-center" v-if="alert.snackAlert.show">
 			<div :class="'main shadow-lg ' + alert.snackAlert.type">
-				<h6 class="text-center text-white">{{ alert.snackAlert.heading }}</h6>
+				<h6 class="text-center text-white alert-heading">{{ alert.snackAlert.heading }}</h6>
 				<ul>
-					<li v-for="(message, index) in alert.snackAlert.messages" v-bind:key="index" class="text-white">
+					<li v-for="(message, index) in alert.snackAlert.messages" v-bind:key="index" class="text-white alert-message">
 						{{ message }}
 					</li>
 				</ul>
