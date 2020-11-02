@@ -48,6 +48,16 @@ Various components are created to handle the createion of the shapes. The creati
 ### View On Web
 [Link to Live project](https://the-fanan.github.io/kudy-challenge-bundled/)
 
+## Unit Tests
+Unit tests cover the following:
+- Shapes are rendered with necessary and correct attributes to display them
+- Shape forms collect correct data and call the shapes.addShape() action when their submit button is clicked
+- Confirmation modal displays correctly based on prop values
+- Snack Alert displays properly based on values in the alert module
+- Shapes view displays the created shapes in shapes module
+
+To run tests, run the following command in terminal `npm run test:unit` or `yarn run test:unit`
+
 ## Author
 [Fanan Dala](https://fanandala.com)
 
