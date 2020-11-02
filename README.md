@@ -23,9 +23,10 @@ Various components are created to handle the createion of the shapes. The creati
 - Shapes that have been created can be moved around the screen and their positons remain intact on reload
 
 ## Edge Cases I thought about
-- Users are not allowed to create shapes with dimensions that exceed the user's screen size. This is to handle edge case of an extremely large dimension value JavaScript may not be able to handle.
+- Users are not allowed to create shapes with dimensions that exceed the user's screen size (which may be a bad user experience). This is to handle edge case of an extremely large dimension value JavaScript may not be able to handle.
 - Polygon sides are limited to 30 to prevent edge case of user entering an extremely large value that Javascript cannot handle. Also, this is to prevent creating a polygon whose size might go out of the screen's proportions.
 - In order to persist shapes on reload, I made use of **window.localStorage**. To prevent a situation where user creates too many shapes and exceeds the maximum storage available for local storage a check is made on the space consumed by the application and if it is exceeded the user is not allowed to create more shapes and is alerted about this.
+- I made use of an object rather than an array for created shapes. This is to ensure that insertion and deletion of created shapes has a time complexity is O(1). Should the number of created shapes grow, insertion and deletion would still be fast.
 
 ## Setting up project
 ### Requirements
