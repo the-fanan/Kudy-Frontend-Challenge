@@ -1,11 +1,11 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import CircleForm from '@/components/shapes/circle/Form.vue';
+import ElipseForm from '@/components/shapes/elipse/Form.vue';
 import Vuex from 'vuex'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-describe('CircleForm collects inputs for creating a circle', () => {
+describe('ElipseForm collects inputs for creating an elipse', () => {
     let actions
     let store
 
@@ -33,20 +33,24 @@ describe('CircleForm collects inputs for creating a circle', () => {
         let shape = {
             top: 100,
             left: 100,
-            color: '#276db9',
-            component: 'circle-shape',
+            color: "#276db8",
+            component: 'elipse-shape',
             parameters: {
-                radius: 40,
+                xRadius: 20,
+                yRadius: 50,
             }
         }
 
-        const wrapper = shallowMount(CircleForm, {
+        const wrapper = shallowMount(ElipseForm, {
             store, 
             localVue
         })
 
-        const radiusInput = wrapper.find('input[name=radius]')
-        await radiusInput.setValue(shape.parameters.radius)
+        const xRadiusInput = wrapper.find('input[name=x-radius]')
+        await xRadiusInput.setValue(shape.parameters.xRadius)
+        const yRadiusInput = wrapper.find('input[name=y-radius]')
+        await yRadiusInput.setValue(shape.parameters.yRadius)
+
         const colorInput = wrapper.find('input[name=color]')
         await colorInput.setValue(shape.color)
         const submitButton = wrapper.find('button.btn-primary.submit-button')
@@ -55,7 +59,8 @@ describe('CircleForm collects inputs for creating a circle', () => {
         expect(actions.addShape).toHaveBeenCalledWith(expect.anything(), shape)
         expect(wrapper.emitted('shape-created')).toBeTruthy()
         //ensure form is reset
-        expect(wrapper.vm.$data.radius).toEqual(10)
+        expect(wrapper.vm.$data.xRadius).toEqual(20)
+        expect(wrapper.vm.$data.yRadius).toEqual(10)
         expect(wrapper.vm.$data.color).toEqual('#276db8')
     })
 })
