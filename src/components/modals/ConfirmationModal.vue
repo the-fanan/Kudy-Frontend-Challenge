@@ -16,8 +16,8 @@
 
             <b-row>
                 <b-col class="d-flex justify-content-end">
-                    <button class="btn btn-primary btn-small" @click="$emit('decline', false)">No, Cancel</button>
-                    <button class="btn btn-danger btn-small" @click="$emit('approve', true)">Yes</button>
+                    <button class="btn btn-primary btn-small confirmation-modal-decline" @click="$emit('decline', false)">No, Cancel</button>
+                    <button class="btn btn-danger btn-small confirmation-modal-approve" @click="$emit('approve', true)">Yes</button>
                 </b-col>
             </b-row>
         </div>
