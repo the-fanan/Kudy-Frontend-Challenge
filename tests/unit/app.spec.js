@@ -90,6 +90,18 @@ describe('App.vue is the parent layout and entry point of app', () => {
         expect(wrapper.vm.showSidebar).toBeFalsy()
         wrapper.vm.toggleShowSideBar()
         expect(wrapper.vm.showSidebar).toBeTruthy()
+        //test auto hide on small screens
+        global.innerWidth = 500;
+        global.dispatchEvent(new Event('resize'));
+        wrapper.vm.handleShapeCreated()
+        expect(wrapper.vm.showSidebar).toBeFalsy()
+        //test auto hide does not hide on larger screens
+        global.innerWidth = 900;
+        global.dispatchEvent(new Event('resize'));
+        wrapper.vm.toggleShowSideBar()
+        wrapper.vm.handleShapeCreated()
+        expect(wrapper.vm.showSidebar).toBeTruthy()
+
         wrapper.vm.handleDeleteConfirmation(false)
         expect(wrapper.vm.showConfirmationModal).toBeFalsy()
     })
