@@ -2,16 +2,16 @@
     <div class="circle-form">
         <div class="form-group">
             <label>Radius</label>
-            <input class="form-control" type="number" v-model="radius"/>
+            <input class="form-control" name="radius" type="number" v-model="radius"/>
         </div>
 
         <div class="form-group">
             <label>Color</label>
-            <input class="form-control" type="color" v-model="color"/>
+            <input class="form-control" name="color" type="color" v-model="color"/>
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" @click="createShape">Create Circle</button>
+            <button class="btn btn-primary submit-button" @click="createShape">Create Circle</button>
         </div>
     </div>
 </template>
