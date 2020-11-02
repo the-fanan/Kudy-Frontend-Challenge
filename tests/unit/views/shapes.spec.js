@@ -49,7 +49,7 @@ describe('Shapes.vue displays the shapes on the user\'s screen', () => {
                     top: 100,
                     left: 100,
                     color: "#276db8",
-                    component: 'square-shape',
+                    component: 'rectangle-shape',
                     key: 'square',
                     parameters: {
                         width: 30,
@@ -93,7 +93,6 @@ describe('Shapes.vue displays the shapes on the user\'s screen', () => {
         const wrapper = shallowMount(Shapes, { store, localVue })
         expect(wrapper.findComponent({ name: 'circle-shape' }).exists()).toBe(true)
         expect(wrapper.findComponent({ name: 'elipse-shape' }).exists()).toBe(true)
-        expect(wrapper.findComponent({ name: 'square-shape' }).exists()).toBe(true)
         expect(wrapper.findComponent({ name: 'polygon-shape' }).exists()).toBe(true)
     })
 })

@@ -9,7 +9,6 @@ import {mapState} from 'vuex';
 import CircleShape from '@/components/shapes/circle/Shape.vue';
 import ElipseShape from '@/components/shapes/elipse/Shape.vue';
 import RectangleShape from '@/components/shapes/rectangle/Shape.vue';
-import SquareShape from '@/components/shapes/square/Shape.vue';
 import PolygonShape from '@/components/shapes/polygon/Shape.vue';
 
 export default {
@@ -24,7 +23,6 @@ export default {
         CircleShape,
         ElipseShape,
         RectangleShape,
-        SquareShape,
         PolygonShape
     }
 }

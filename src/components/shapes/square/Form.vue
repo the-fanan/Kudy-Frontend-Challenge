@@ -44,7 +44,7 @@ export default {
                 top: 100,
                 left: 100,
                 color: this.color,
-                component: 'square-shape',
+                component: 'rectangle-shape',
                 parameters: {
                     width: parseFloat(this.width),
                 }
