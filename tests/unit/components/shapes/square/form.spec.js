@@ -1,11 +1,11 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import RectangleForm from '@/components/shapes/rectangle/Form.vue';
+import SquareForm from '@/components/shapes/square/Form.vue';
 import Vuex from 'vuex'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-describe('RectangleForm collects inputs for creating a rectangle', () => {
+describe('SquareForm collects inputs for creating a square', () => {
     let actions
     let store
 
@@ -29,7 +29,7 @@ describe('RectangleForm collects inputs for creating a rectangle', () => {
         expect(screen.width).toBe(500);
     })
 
-    it('creates the necessary Object for a rectangle shape', async () => {
+    it('creates the necessary Object for a square shape', async () => {
         let shape = {
             top: 100,
             left: 100,
@@ -37,19 +37,17 @@ describe('RectangleForm collects inputs for creating a rectangle', () => {
             component: 'rectangle-shape',
             parameters: {
                 width: 40,
-                height: 20,
+                height: 40,
             }
         }
 
-        const wrapper = shallowMount(RectangleForm, {
+        const wrapper = shallowMount(SquareForm, {
             store, 
             localVue
         })
 
         const widthInput = wrapper.find('input[name=width]')
         await widthInput.setValue(shape.parameters.width)
-        const heightInput = wrapper.find('input[name=height]')
-        await heightInput.setValue(shape.parameters.height)
 
         const colorInput = wrapper.find('input[name=color]')
         await colorInput.setValue(shape.color)
@@ -60,7 +58,6 @@ describe('RectangleForm collects inputs for creating a rectangle', () => {
         expect(wrapper.emitted('shape-created')).toBeTruthy()
         //ensure form is reset
         expect(wrapper.vm.$data.width).toEqual(80)
-        expect(wrapper.vm.$data.height).toEqual(40)
         expect(wrapper.vm.$data.color).toEqual('#276db8')
     })
 })

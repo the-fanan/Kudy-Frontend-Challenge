@@ -2,16 +2,16 @@
     <div class="square-form">
         <div class="form-group">
             <label>Width</label>
-            <input class="form-control" type="number" v-model="width"/>
+            <input class="form-control" name="width" type="number" v-model="width"/>
         </div>
 
         <div class="form-group">
             <label>Color</label>
-            <input class="form-control" type="color" v-model="color"/>
+            <input class="form-control" name="color" type="color" v-model="color"/>
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" @click="createShape">Create Square</button>
+            <button class="btn btn-primary submit-button" @click="createShape">Create Square</button>
         </div>
     </div>
 </template>
@@ -47,12 +47,12 @@ export default {
                 component: 'rectangle-shape',
                 parameters: {
                     width: parseFloat(this.width),
+                    height: parseFloat(this.width),
                 }
             }
             this.addShape(shape);
             //reset form
             this.width = 80;
-            this.height = 40;
             this.color = "#276db8";
             //emit that shape is created so that mobile viewers can see
             this.$emit('shape-created')

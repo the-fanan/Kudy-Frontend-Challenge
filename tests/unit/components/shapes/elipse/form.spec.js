@@ -29,7 +29,7 @@ describe('ElipseForm collects inputs for creating an elipse', () => {
         expect(screen.width).toBe(500);
     })
 
-    it('creates the necessary Object for a circle shape', async () => {
+    it('creates the necessary Object for an ellipse shape', async () => {
         let shape = {
             top: 100,
             left: 100,
