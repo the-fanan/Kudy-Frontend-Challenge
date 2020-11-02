@@ -13,11 +13,6 @@ import SquareShape from '@/components/shapes/square/Shape.vue';
 import PolygonShape from '@/components/shapes/polygon/Shape.vue';
 
 export default {
-    data(){
-        return {
-            displayedShapes: [],
-        }
-    },
     computed: {
         ...mapState({createdShapes: state => state.shapes.created}),
     },

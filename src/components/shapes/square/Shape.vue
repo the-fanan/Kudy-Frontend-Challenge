@@ -10,7 +10,7 @@
 import Shape from '@/components/shapes/Shape.vue';
 
 export default {
-    name: 'rectangle-shape',
+    name: 'square-shape',
     props: {
         shape: {
             type: Object,
