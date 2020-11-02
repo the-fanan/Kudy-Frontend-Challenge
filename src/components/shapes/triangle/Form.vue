@@ -2,16 +2,16 @@
     <div class="triangle-form">
         <div class="form-group">
             <label>Width</label>
-            <input class="form-control" type="number" v-model="width"/>
+            <input class="form-control" name="width" type="number" v-model="width"/>
         </div>
 
         <div class="form-group">
             <label>Color</label>
-            <input class="form-control" type="color" v-model="color"/>
+            <input class="form-control" name="color" type="color" v-model="color"/>
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" @click="createShape">Create Triangle</button>
+            <button class="btn btn-primary submit-button" @click="createShape">Create Triangle</button>
         </div>
     </div>
 </template>
