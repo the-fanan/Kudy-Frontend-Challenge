@@ -43,6 +43,7 @@ Various components are created to handle the createion of the shapes. The creati
 
 ### Serving with Docker
 - Enter into project root directory
+- Run `sudo docker-compose build`
 - Run `sudo docker-compose up`
 - Open your web browser and navigate to `http://localhost:5000`
 
