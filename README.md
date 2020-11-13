@@ -48,7 +48,7 @@ Various components are created to handle the createion of the shapes. The creati
 - Open your web browser and navigate to `http://localhost:5000`
 
 ### View On Web
-[Link to Live project](https://the-fanan.github.io/Kudy-Frontend-Challenge-bundled/)
+[Link to Live project](https://the-fanan.github.io/Kudy-Frontend-Challenge/)
 
 ## Unit Tests
 Unit tests cover the following:
